@@ -1,0 +1,103 @@
+/* globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gamified UI Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --game-bg-dark: #100318; /* Very Deep Dark Violet background */
+  --game-bg-medium: #25083B; /* Slightly lighter violet for subtle background elements */
+  --game-primary-accent: #00ffc1; /* Cyber green */
+  --game-secondary-accent: #ff0080; /* Neon pink */
+  --game-text-light: #e0e0e0; /* Light text for readability */
+  --game-text-medium: #a0a0a0; /* Medium gray for secondary text */
+  --game-border-color: rgba(0, 255, 193, 0.5); /* Semi-transparent cyber green border */
+  --game-card-bg: #331452; /* Lighter violet for main cards/sections */
+  --game-input-bg: #452070; /* Even lighter violet for inputs and nested content areas */
+  --game-shadow-glow: 0 0 15px rgba(0, 255, 193, 0.6);
+  --game-button-glow: 0 0 10px rgba(0, 255, 193, 0.8);
+}
+
+@layer base {
+  body {
+    color: var(--game-text-light);
+    font-family: 'Space Mono', monospace; /* Modern, monospace game font */
+    background: linear-gradient(135deg, var(--game-bg-dark) 0%, var(--game-bg-medium) 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+    background-attachment: fixed;
+    position: relative; /* For overlay */
+    overflow-x: hidden;
+  }
+
+  /* Grid overlay for gamified effect */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(0, 255, 193, 0.08) 25%, rgba(0, 255, 193, 0.08) 26%, transparent 27%, transparent 74%, rgba(0, 255, 193, 0.08) 75%, rgba(0, 255, 193, 0.08) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 255, 193, 0.08) 25%, rgba(0, 255, 193, 0.08) 26%, transparent 27%, transparent 74%, rgba(0, 255, 193, 0.08) 75%, rgba(0, 255, 193, 0.08) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+    z-index: -1; /* Behind content */
+    opacity: 0.3;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', cursive; /* Pixelated game font for headings */
+    color: var(--game-primary-accent);
+    font-weight: 400; /* Press Start 2P is usually one weight */
+    line-height: 1.2;
+    text-shadow: var(--game-shadow-glow);
+  }
+
+  h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-family: 'Space Mono', monospace;
+    color: var(--game-text-light);
+  }
+
+  a {
+    color: var(--game-primary-accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--game-bg-medium);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--game-primary-accent);
+    border-radius: 10px;
+    border: 2px solid var(--game-bg-medium);
+    box-shadow: 0 0 5px var(--game-primary-accent);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--game-secondary-accent);
+    box-shadow: 0 0 8px var(--game-secondary-accent);
+  }
+} 

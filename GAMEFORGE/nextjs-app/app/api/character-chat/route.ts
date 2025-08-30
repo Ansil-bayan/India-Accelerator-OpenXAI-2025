@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-export async function POST(req: NextRequest) {
-  try {
+export async function POST(req: NextRequest) 
+{
+  try 
+  {
     const { message, character } = await req.json()
 
-    const characterPrompts = {
+    const characterPrompts = 
+    {
       wizard: "You are a wise wizard in a fantasy game. Respond in character with magical wisdom.",
       warrior: "You are a brave warrior in a fantasy game. Respond with courage and strength.",
       rogue: "You are a sneaky rogue in a fantasy game. Respond with wit and cunning.",
@@ -13,19 +16,22 @@ export async function POST(req: NextRequest) {
 
     const characterPrompt = characterPrompts[character as keyof typeof characterPrompts] || characterPrompts.default
 
-    const response = await fetch('http://localhost:11434/api/generate', {
+    const response = await fetch('http://localhost:11434/api/generate', 
+      {
       method: 'POST',
-      headers: {
+      headers: 
+      {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
+      body: JSON.stringify(
+        {
         model: 'llama3:latest',
         prompt: `${characterPrompt}\n\nPlayer says: "${message}"\n\nRespond as the character:`,
         stream: false,
       }),
     })
 
-    if (!response.ok) {
+    if (!response.ok){
       throw new Error('Failed to get response from Ollama')
     }
 
