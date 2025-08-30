@@ -1,6 +1,6 @@
-# 👁️ Vision Template
+# 👁️ Visual Search
 
-A Next.js template for building computer vision applications with AI-powered image analysis! This template provides image upload, analysis, and visualization capabilities with a modern interface.
+Visual Search is an advanced AI powered app that lets users upload their images and ask questions regarding anything in the image. The app recommends stores from which users can shop similar or same items, gives details regarding the history of the item and provides alternatives if the product is out of stock.
 
 ## Features
 
